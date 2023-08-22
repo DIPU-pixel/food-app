@@ -1,0 +1,105 @@
+<!-- Bunddler:webpack, vit,parcel
+In this app we are using bundler:
+
+
+pacakge.lock.json:It will fix the version of your package  -->
+
+<!-- for this project :
+npm i react
+npm i reactdom
+npx parcel index.html
+About parcel :
+HMR: **hot module reaload();
+**file watcher algorithum (which is written C++) -->
+<!-- About .parcel-cache : -->
+<!-- bunddling -->
+<!-- minify -->
+<!-- cleaning our code  -->
+<!-- images takes time in the broswer -->
+<!-- It is manage ddev and production build ,it is superfast  -->
+<!-- image optimization through parcel -->
+<!-- caching while development build  -->
+<!-- compatiable with older version of broswer -->
+<!-- https on local build and development -->
+<!-- consistance hassing Algo -->
+ 
+<!-- broswerlist :used for comptatibale in all web -->
+
+
+<!-- pollyfill -->
+
+
+<!-- remove console.log -->(babel website )
+
+
+
+<!-- JSX -->:
+<!-- //dynamic card -->
+<!-- join function -->
+<!-- config driven ui -->
+
+<!-- <viratul dom -->
+<!-- Reconcelattion Reconcelattion is diff algo one tree other, it determines which tree need to rerdener  -->
+<!-- React FIber :new Reconcelattion is reponsible  -->
+<!-- <key is improtant in react js  -->
+
+
+<!-- Never used Index as key reasone: -->
+
+<!-- <hooks -->
+
+<!-- useState has to crate local variable in js 
+It has a normal function but it has local how we intital a local state variable in js like its same 
+ -->
+ <!-- To modify our local state variable we need to used a function called setState  -->
+ <!-- two way binding in react js achived by useState -->
+
+
+
+
+<!-- Microservices  -->
+<!-- changes is easy for very component -->
+<!-- 2)easy to maintain -->
+<!-- 3 spearting the conecren  -->
+
+<!-- Monolith -->
+
+
+<!-- ep9  finding the path-->
+<!-- install libary  -->
+<!-- React Router DOM -->
+
+
+
+<!-- Single page application -->:
+<!-- Its not reaload: -->
+<!-- its not load the whole page  -->
+<!-- client side routing and server side routing -->
+
+
+<!-- nested routing -->
+<!-- basically the routing which has nested between more component like is called nested routing -->
+<!-- <React router dom provide basically Outlet is  bascailly child component -->
+<!-- example -->
+<!-- const RoutingPart = createRouter[( -->
+    {
+        path:"/",
+        <!-- component:<Home/> -->
+    },
+    children:[
+    {
+        path:"/about-us"
+        <!-- component:<childrean /> -->
+    }
+    ]
+)]
+
+
+<!-- dynamic routing -->
+
+
+<!-- //Why i cant componentDidMount make async but not useeffcet in react -->
+
+<!-- lets gets classy: 2:18:53 -->
+
+  optimizw your app:1:45:12
