@@ -11,7 +11,7 @@ const ResturantMenu = () => {
   // console.log(getMenudata);
   const RestroInfo = getMenudata?.cards[0]?.card?.card?.info;
   const menuInfo= getMenudata?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3].card.card;
-  console.log(menuInfo?.itemCards?.map((x)=>x?.card?.info?.name));
+  console.log(menuInfo);
 
   return RestroInfo === 0 ?
   <Loading/> : (

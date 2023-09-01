@@ -1,8 +1,7 @@
-import React from "react";
+import React, { lazy } from "react";
 import "./app.css";
 import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
-import Footer from "./component/Footer";
 import Body from "./component/Body";
 import About from "./component/About";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -10,6 +9,8 @@ import Errorpage from "./component/Errorpage";
 import ContactUs from "./component/contact-us";
 import ResturantMenu from "./component/resturantMenu";
 import Profile from './component/ProfileClass';
+
+const Footer =lazy(()=>import("./component/Footer"))
 
 const AppLayout = () => {
   return (

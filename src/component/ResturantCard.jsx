@@ -1,18 +1,14 @@
+import { imgURL } from "./../config";
 
-import { imgURL } from './../config';
-
-const ResturantCard = ({restaurant}) => {
-    const{name,cuisines,avgRating,cloudinaryImageId}  =restaurant
+const ResturantCard = ({ restaurant }) => {
+  const { name, cuisines, avgRating, cloudinaryImageId } = restaurant;
   return (
-    <div className="card" >
-      <img
-        src={imgURL+ cloudinaryImageId}
-        alt="image"
-      />
-      <h3>{name}</h3>
-      <h5>{cuisines.slice(0,4).join(',')}</h5>
-      <h4>{avgRating}</h4>
+    <div className="w-52 m-2 p-2 shadow-lg bg-pink-80 hover:bg-pink-300">
+      <img src={imgURL + cloudinaryImageId} alt="image" />
+      <p className="text-xl">{name}</p>
+      <p className="text-xs">{cuisines.slice(0, 4).join(",")}</p>
+      <p>{avgRating}</p>
     </div>
   );
 };
-export default ResturantCard
+export default ResturantCard;

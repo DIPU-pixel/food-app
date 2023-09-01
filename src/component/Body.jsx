@@ -9,33 +9,37 @@ import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const mainDetails = useBodyHooks();
-  const onlineStatus=useOnline()
-  const { allResturant, filterdata ,setFilterdata} = mainDetails;
+  const onlineStatus = useOnline();
+  const { allResturant, filterdata, setFilterdata } = mainDetails;
   const [serachInput, setSearchinput] = React.useState("");
   function handleButtonClick() {
     const data = getFiltervalue(serachInput, allResturant);
     setFilterdata(data);
   }
-   
-      
-  if(!onlineStatus){
-   return  <p>  you are ofline</p>
+  if (!onlineStatus) {
+    return <p> you are ofline</p>;
   }
   //   if(filterdata?.length  === 0) return  <h1> no result found</h1>
   return allResturant?.length === 0 ? (
     <Loading />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-5 bg-pink-50 my-5">
         <input
           type="text"
           value={serachInput}
+          className="p-2 w-80 rounded-md "
           placeholder="search data"
           onChange={(e) => setSearchinput(e.target.value)}
         />
-        <button onClick={handleButtonClick}>search</button>
+        <button
+          className="rounded w-40 m-2 p-2 bg-purple-500 text-white "
+          onClick={handleButtonClick}
+        >
+          search
+        </button>
       </div>
-      <div className="resturant-list">
+      <div className=" m-1 grid grid-cols-4 divide-y ">
         {filterdata?.map((datainfo, index) => (
           <div key={index}>
             <Link to={"/resturantmenu/" + datainfo.info.id} key={index}>

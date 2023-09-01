@@ -103,3 +103,10 @@ It has a normal function but it has local how we intital a local state variable 
 <!-- lets gets classy: 2:18:53 -->
 
   optimizw your app:1:45:12
+
+if you have large number of js files you just need to build and that js build convert into mutiple files when you are building called 
+<!-- chunking -->
+<!-- code spliting -->
+<!-- dynamic building -->
+<!-- lazy loading -->
+<!-- on demanded loading -->
