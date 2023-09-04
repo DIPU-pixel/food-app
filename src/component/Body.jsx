@@ -33,13 +33,13 @@ const Body = () => {
           onChange={(e) => setSearchinput(e.target.value)}
         />
         <button
-          className="rounded w-40 m-2 p-2 bg-purple-500 text-white "
+          className="rounded w-40 m-2 p-2 bg-purple-500 text-white hover:bg-purple-700 hover:text-gray-100 "
           onClick={handleButtonClick}
         >
           search
         </button>
       </div>
-      <div className=" m-1 grid grid-cols-4 divide-y ">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 ">
         {filterdata?.map((datainfo, index) => (
           <div key={index}>
             <Link to={"/resturantmenu/" + datainfo.info.id} key={index}>

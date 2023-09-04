@@ -8,7 +8,7 @@ const Loading = () => {
         .fill()
         .map((val, index) => {
           return (
-            <div className="shimmer-card" key={index}>
+            <div className="shimmer-card " key={index}>
               <div className="shimmer-image"></div>
               <div className="shimmer-text">
                 <div className="shimmer-line"></div>
