@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { getFiltervalue } from "../utils/utils";
 import useBodyHooks from "./../utils/useBodyHooks";
 import useOnline from "../utils/useOnline";
+import Banner from "./Banner-container/banner";
 
 const Body = () => {
   const mainDetails = useBodyHooks();
@@ -19,11 +20,11 @@ const Body = () => {
   if (!onlineStatus) {
     return <p> you are ofline</p>;
   }
-  //   if(filterdata?.length  === 0) return  <h1> no result found</h1>
+    if(filterdata?.length  === 0) return  <h1> no result found</h1>
   return allResturant?.length === 0 ? (
     <Loading />
   ) : (
-    <>
+    <div className=" m-5">
       <div className="p-5 bg-pink-50 my-5">
         <input
           type="text"
@@ -39,6 +40,9 @@ const Body = () => {
           search
         </button>
       </div>
+      <div>
+        <Banner />
+      </div>
       <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 ">
         {filterdata?.map((datainfo, index) => (
           <div key={index}>
@@ -48,7 +52,7 @@ const Body = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 export default Body;

@@ -9,15 +9,28 @@ import Errorpage from "./component/Errorpage";
 import ContactUs from "./component/contact-us";
 import ResturantMenu from "./component/resturantMenu";
 import Profile from './component/ProfileClass';
-
-const Footer =lazy(()=>import("./component/Footer"))
+import { ProviderData } from "./context-api/UserContextData";
+import { Provider } from "react-redux";
+import { Toaster } from 'react-hot-toast';
+const Footer = lazy(() => import("./component/Footer"))
+import store from './utils/store';
+import Cart from './component/cart/cart';
 
 const AppLayout = () => {
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+    <Provider store={store}>
+    <ProviderData>
+      <Toaster/>
+        <Header />
+        <Outlet />
+        <Footer />
+
+      </ProviderData>
+      
+    </Provider>
+   
+
     </>
   );
 };
@@ -35,10 +48,14 @@ const mainRouter = createBrowserRouter([
       {
         path: "/about-us",
         element: <About />,
-        children:[{
-          path:"profile",
-          element:<Profile/>
+        children: [{
+          path: "profile",
+          element: <Profile />
         }]
+      },
+      {
+        path: '/cart',
+        element: <Cart/>
       },
       {
         path: "/contact-us",

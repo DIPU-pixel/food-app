@@ -4,32 +4,42 @@ import { imgURL } from "./../config";
 import Loading from "./Loading";
 import "../app.css";
 import useResturantsHooks from "../utils/useResturantsHooks";
+import { useDispatch } from "react-redux";
+import { addItems } from "../utils/slices/cartSlice";
+import toast from 'react-hot-toast';
 
-const MenuItem = ({ item }) => {
-  console.log(item);
-  return (
-    <div className="bg-white p-4 mb-4 shadow-md rounded-lg">
-      <img
-        src={imgURL + item.imageId}
-        alt="Item Image"
-        className="w-full h-32 object-cover rounded-md"
-      />
-      <h3 className="text-lg font-semibold mt-2">{item.name}</h3>
-      <p className="text-gray-600">{item.description}</p>
-      <div className="flex justify-between mt-4">
-        <span className="text-xl font-semibold">${item.price}</span>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-md">
-          Add to Cart
-        </button>
-      </div>
-    </div>
-  );
-};
+
 
 const ResturantMenu = () => {
   const { id } = useParams();
   const [menuItems, setMenuItems] = useState([]);
   const getMenudata = useResturantsHooks(id);
+  const dispatch =useDispatch();
+  const AddedItems = (item) => {
+    console.log(item);
+    dispatch(addItems(item))
+    toast.success(`Added to cart ${item?.name}`);
+  };
+  
+  const MenuItem = ({ item }) => {
+    return (
+      <div className="bg-white p-4 mb-4 shadow-md rounded-lg">
+        <img
+          src={imgURL + item.imageId}
+          alt="Item Image"
+          className="w-full h-32 object-cover rounded-md"
+        />
+        <h3 className="text-lg font-semibold mt-2">{item.name}</h3>
+        <p className="text-gray-600">{item.description}</p>
+        <div className="flex justify-between mt-4">
+          <span className="text-xl font-semibold">{parseFloat(item?.price/100)} </span>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded-md" onClick={()=>AddedItems(item)}>
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    );
+  };
 
   useEffect(() => {
     const menuInfo =

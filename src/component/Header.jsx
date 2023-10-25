@@ -1,9 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LOGO from "../Assest/image/logo.png";
+import useOnline from "../utils/useOnline";
+import { useSelector } from "react-redux";
 
 const Title = () => {
-  return <img className="p-2 h-20 bg-pink-50" src={LOGO} alt="image" />;
+  return (
+    <div>
+      <Link to="/">
+        <img className="p-2 h-20 bg-pink-50" src={LOGO} alt="image" />
+      </Link>
+    </div>
+  );
 };
 
 const Header = () => {
@@ -11,10 +19,11 @@ const Header = () => {
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
+  const cartInfo = useSelector((state) => state?.cart?.items);
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
-
+  const onlineData = useOnline();
   useEffect(() => {
     const handleScroll = () => {
       // Add a scroll threshold value (e.g., 100 pixels) to determine when to fix the header
@@ -57,9 +66,14 @@ const Header = () => {
             <li className="px-2">
               <Link to="/contact-us">Contact</Link>
             </li>
-            <li className="px-2">Cart</li>
+            <li className="px-2 cursor-pointer">
+              <Link to="/cart">
+              Cart -{cartInfo?.length}
+              </Link>
+              </li>
           </ul>
         </div>
+        <div>{onlineData ? "🤜" : null}</div>
         {islogin === false ? (
           <button onClick={() => setIslogin(true)}>Logout</button>
         ) : (
